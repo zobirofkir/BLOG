@@ -116,7 +116,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="slider_text text-center">
-                                <h3>About</h3>
+                                <h3>Contact</h3>
                                 <p>Welcome to my blog</p>
                             </div>
                         </div>
@@ -128,7 +128,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="slider_text text-center">
-                                <h3>About</h3>
+                                <h3>Contact</h3>
                                 <p>Life is Beautiful</p>
                             </div>
                         </div>
@@ -140,7 +140,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="slider_text text-center">
-                                <h3>About</h3>
+                                <h3>Contact</h3>
                                 <p>Welcome to my blog</p>
                             </div>
                         </div>
@@ -152,7 +152,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="slider_text text-center">
-                                <h3>About</h3>
+                                <h3>Contact</h3>
                                 <p>Hello, world</p>
                             </div>
                         </div>
@@ -184,13 +184,20 @@
                         max-height: 100%;
                         box-shadow: 5px 5px 5px ;
                     }
-                    form{
+                    /* form{
                         border-radius: 20px;
                         box-shadow: 5px 5px 5px 5px;
-                    }
+                    } */
                     div{
                         text-align: center;
                     }
+                    .form-contact textarea,
+                    .form-contact input[type="text"],
+                    .form-contact input[type="email"],
+
+                    .form-contact button {
+                    text-shadow: 1px 1px 1px black; /* Add the shadow effect */
+                }
                 </style>
                 
     
@@ -203,27 +210,27 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Name"></textarea>
+                                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder="Message" style="color: black;"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                                        <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name" style="color: black;">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
+                                        <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email" style="color: black;">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
+                                        <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject" style="color: black;">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group mt-3">
-                                <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                                <button type="submit" class="button button-contactForm boxed-btn" style="color: black;">Send</button>
                             </div>
                         </form>
                     </div>

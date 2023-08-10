@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REGISTER</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
     <!-- Place favicon.ico in the root directory -->
 
@@ -117,7 +118,7 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <h2>Login</h2>
-                <form action="login_handler.php" method="post">
+                <form action="" method="post">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" id="email" name="email" required>
@@ -126,7 +127,7 @@
                         <label for="password">Password</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="button" class="btn btn-primary" id="registerButton">Login</button>
                     <div>
                         <a href="register.html">Don"t have an account !!!</a>
                     </div>
@@ -237,6 +238,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             </div>
     </form>
 
+    <script src="js/ajax_login.js"></script>
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -261,7 +263,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/jquery.ajaxchimp.min.js"></script>
     <script src="js/jquery.form.js"></script>
     <script src="js/jquery.validate.min.js"></script>
-    <script src="js/mail-script.js"></script>
 
     <script src="js/main.js"></script>
     <script>
