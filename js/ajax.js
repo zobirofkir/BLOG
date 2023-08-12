@@ -6,12 +6,6 @@ $(document).ready(function() {
         var confirm_password = $("#confirm_password").val();
         var date = $("#birthdate").val();
 
-        if (password !== confirm_password) {
-            $("#passwordError").text("Passwords do not match");
-            return;
-        } else {
-            window.location.href = "login.html";
-        }
         $.ajax({
             type: "POST",
             url: "http://localhost:3000/models/register.php",
@@ -25,10 +19,23 @@ $(document).ready(function() {
             },
             success: function(response) {
                 console.log(response);
+                if (response === "This user has been registered.") {
+                    // Set the user cookie in JavaScript
+                    var userCookieValue = fullname;
+                    var cookieExpiry = new Date();
+                    cookieExpiry.setTime(cookieExpiry.getTime() + (30 * 24 * 60 * 60 * 1000)); // Cookie expires in 30 days
+                    document.cookie = "user_cookie=" + userCookieValue + ";expires=" + cookieExpiry.toUTCString() + ";path=/";
+                    console.log("User cookie has been set.");
+                    window.location.href = "login.html";
+                }
+                if (password !== confirm_password) {
+                    $("#passwordError").text("Passwords do not match");
+                    return;
+                }if (response === "This user already exists in the database!"){
+                    alert("This user already exists in the database!");
+                }     
             }
+            
         });
     });
 });
-
-
-

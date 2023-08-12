@@ -24,24 +24,13 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ajax.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
 <body>
-    <style>
-        .book_btn a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 15px; /* Adjust the value to change the border radius */
-            text-decoration: none;
-        }
-    
-        .book_btn a:hover {
-            background-color: #0056b3; /* Change the background color on hover if desired */
-        }
-    </style>
 
     <!-- header-start -->
     <header>
@@ -56,6 +45,9 @@
                                         <li><a class="active" href="index.html">home</a></li>
                                         <li><a href="about.html">About</a></li>
                                         <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="register.html">Register</a></li>
+                                        <li><a href="login.html">Login</a></li>
+
                                     </ul>
                                 </nav>
                             </div>
@@ -88,13 +80,13 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="book_btn d-none d-lg-block">
+                                <!-- <div class="book_btn d-none d-lg-block">
                                     <a href="register.html">Register</a>
-                                </div>
+                                </div> -->
 
-                                <div class="book_btn d-none d-lg-block">
+                                <!-- <div class="book_btn d-none d-lg-block">
                                     <a href="login.html">Login</a>
-                                </div>
+                                </div> -->
 
                             </div>
                         </div>
@@ -107,6 +99,7 @@
         </div>
     </header>
     <!-- header-end -->
+    
 
     <!-- slider_area_start -->
     <div class="slider_area">
@@ -163,6 +156,23 @@
     </div>
     <!-- slider_area_end -->
 
+    <div class="container">
+        <div class="container">
+            <h2 class="mt-3 text-center"><b>All Users</b></h2>
+        </div>
+        <div class="table-responsive mt-3">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody id="userTable"></tbody>
+            </table>
+        </div>
+    </div>            
+    
     <!-- about_area_start -->
     <div class="about_area">
         <div class="container">
@@ -191,6 +201,31 @@
         </div>
     </div>
     <!-- about_area_end -->
+
+    <br><br><br>
+    <!-- video_area_start -->
+    <div class="container">
+        <h2 class="mt-3 text-center"><b>Video</b></h2>
+    </div>
+    <div class="video_area slider_bg_1 overlay">
+        <div class="video_area_inner text-center">
+            <span>BLOG ZOBIR</span>
+            <h3>You can watch this video about this blog<br></h3>
+            <a href="https://www.youtube.com/watch?v=vLnPwxZdW4Y" class="video_btn popup-video">
+                <i class="fa fa-play"></i>
+            </a>
+        </div>
+    </div>
+    <!-- video_area_end -->
+
+    <div class="container mt-5 text-center comments">
+        <h1 class="mb-4">Comments</h1>
+        <div id="commentList">
+            <!-- Comments will be added here using JavaScript -->
+        </div>
+    </div>
+
+    <br><br><br>
 
     <!-- offers_area_start -->
     <div class="offers_area">
@@ -248,17 +283,6 @@
     </div>
     <!-- offers_area_end -->
 
-    <!-- video_area_start -->
-    <div class="video_area slider_bg_1 overlay">
-        <div class="video_area_inner text-center">
-            <span>BLOG ZOBIR</span>
-            <h3>You can watch this video about this blog<br></h3>
-            <a href="https://www.youtube.com/watch?v=vLnPwxZdW4Y" class="video_btn popup-video">
-                <i class="fa fa-play"></i>
-            </a>
-        </div>
-    </div>
-    <!-- video_area_end -->
 
     <!-- about_area_start -->
     <div class="about_area">
@@ -417,6 +441,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- form itself end -->
 
     <!-- JS here -->
+    <script src="js/ajax-get-comment.js"></script>
+    <script src="js/java-get.js"></script>
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <script src="js/popper.min.js"></script>
