@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $("#contactForm").submit(function(event){
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
 
         var message = $("#message").val();
         var name = $("#name").val();
@@ -19,16 +19,10 @@ $(document).ready(function(){
             },
             success: function(response){
                 console.log(response);
-                if (response === "success"){
-                    alert("Message sent successfully!");
-                } else {
-                    alert("An error occurred while sending the message.");
-                }
+                if (response === "We call you soon") {
+                    alert("We call you soon");
+                } 
             },
-            error: function(xhr, status, error) {
-                console.error(error);
-                alert("An error occurred while sending the message.");
-            }
         });
     });
 });
