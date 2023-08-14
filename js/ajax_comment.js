@@ -4,7 +4,7 @@ $(document).ready(function(){
         var name = $("#name").val();
         var email = $("#email").val();
         var website = $("#website").val();
-        
+         
         $.ajax({
             method: "POST",
             url: "http://localhost:3000/models/post-comment.php",

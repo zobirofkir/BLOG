@@ -19,7 +19,7 @@ $(document).ready(function() {
             },
             success: function(response) {
                 console.log(response);
-                if (response === "This user has been registered.") {
+                if (response === "This user has been registered and an email has been sent.") {
                     // Set the user cookie in JavaScript
                     var userCookieValue = fullname;
                     var cookieExpiry = new Date();
@@ -33,7 +33,9 @@ $(document).ready(function() {
                     return;
                 }if (response === "This user already exists in the database!"){
                     alert("This user already exists in the database!");
-                }     
+                }   if (response === "You are registered, but you didn't use a valid email address!"){
+                        alert("You are registered, but you didn't use a valid email address!");
+                }
             }
             
         });
