@@ -44,7 +44,7 @@ $(document).ready(function() {
                     // Set the user cookie in JavaScript
                     var userCookieValue = fullname;
                     var cookieExpiry = new Date();
-                    cookieExpiry.setTime(cookieExpiry.getTime() + (30 * 24 * 60 * 60 * 1000));
+                    cookieExpiry.setFullYear(cookieExpiry.getFullYear() + 1); // Adding 1 year to the current year
                     document.cookie = "user_cookie=" + userCookieValue + ";expires=" + cookieExpiry.toUTCString() + ";path=/";
                     console.log("User cookie has been set.");
 
@@ -69,5 +69,7 @@ $(document).ready(function() {
     var fullnameCookie = getFullnameCookie();
     if (fullnameCookie) {
         $("#userName").text(fullnameCookie);
+    } else {
+        $("#userName").text("world"); // Corrected the element selector and removed unnecessary else if condition
     }
 });
