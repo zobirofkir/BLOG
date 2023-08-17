@@ -7,6 +7,8 @@
     <title>Blog</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
@@ -34,97 +36,57 @@
 
     <!-- header-start -->
     <header>
-        <div class="header-area ">
+        <div class="header-area">
             <div id="sticky-header" class="main-header-area">
                 <div class="container-fluid p-0">
                     <div class="row align-items-center no-gutters">
                         <div class="col-xl-5 col-lg-6">
-                            <div class="main-menu  d-none d-lg-block">
+                            <div class="main-menu d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
                                         <li><a class="active" href="blog.html">home</a></li>
-                                        <li><a href="single-blog.html">Single Blog</a></li>
+                                        <li><a href="single-blog.html">Blog</a></li>
                                         <li><a href="cloud.html">cloud</a></li>
-                                        <li><a href="sécirité.html">sécurité</a></li>
+                                        <li><a href="sécurité.html">sécurité</a></li>
                                         <li><a href="web.html">Web</a></li>
-                                        <li><a class="active" href="index.html">Log out</a></li>
+                                        <li><a href="index.html">Log out</a></li>
                                     </ul>
+                                </nav>
                             </div>
                         </div>
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
-                                <a href="index.html">
-                                    <img src="img/logo.png" alt="">
-                                </a>
+                                <a href="index.html"><img src="img/logo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-5 col-lg-4 d-none d-lg-block">
                             <div class="book_room">
                                 <div class="socail_links">
                                     <ul>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-facebook-square"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-instagram"></i>
-                                            </a>
-                                        </li>
+                                        <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
-                        </div>
+                        <div class="col-12"><div class="mobile_menu d-block d-lg-none"></div></div>
                     </div>
                 </div>
             </div>
         </div>
-    </nav>
     </header>
     <!-- header-end -->
 
     <!-- bradcam_area_start -->
     <div class="slider_area">
-        <div class="slider_active owl-carousel">
-            <div class="single_slider d-flex align-items-center justify-content-center slider_bg_3">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text text-center">
-                                <h3>ZOBIR BLOG</h3>
-                                <p>Welcome to my blog</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_slider  d-flex align-items-center justify-content-center slider_bg_2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text text-center">
-                                <h3>ZOBIR BLOG</h3>
-                                <p>Hello, world</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="">
             <div class="single_slider d-flex align-items-center justify-content-center slider_bg_1">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="slider_text text-center">
-                                <h3>ZOBIR BLOG</h3>
+                                <h3>Hello <span id="userName"></span></h3>
                                 <p>Welcome to my blog</p>
                             </div>
                         </div>
@@ -133,7 +95,7 @@
             </div>
         </div>
     </div>
-    <!-- bradcam_area_end -->
+        <!-- bradcam_area_end -->
 
 
     <!--================Blog Area =================-->
@@ -142,7 +104,7 @@
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
-                        <article class="blog_item">
+                        <!-- <article class="blog_item">
                             <div class="blog_item_img">
                                 <img class="card-img rounded-0" src="img/blog/cloud-computing-news.png" alt="">
                                 <a href="#" class="blog_item_date">
@@ -259,7 +221,14 @@
                                     <li><a href="comment.html"><i class="fa fa-comments"></i> 03 Comments</a></li>
                                 </ul>
                             </div>
-                        </article>
+                        </article> -->
+
+                        <section class="blog_area section-padding" id="blogPostsContainer">
+                            <br>
+                        </section>                        
+
+
+                        
 
 
                         <nav class="blog-pagination justify-content-center d-flex">
@@ -494,6 +463,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     </form>
 <!-- form itself end -->
     <!-- JS here -->
+    <script src="js/get-blog.js"></script>
+    <script src="js/ajax.js"></script>
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <script src="js/popper.min.js"></script>

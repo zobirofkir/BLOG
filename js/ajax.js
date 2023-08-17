@@ -1,5 +1,25 @@
 $(document).ready(function() {
+    function getFullnameCookie() {
+        var cookieName = "user_cookie=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var cookieArray = decodedCookie.split(';');
+        for (var i = 0; i < cookieArray.length; i++) {
+            var cookie = cookieArray[i];
+            while (cookie.charAt(0) === ' ') {
+                cookie = cookie.substring(1);
+            }
+            if (cookie.indexOf(cookieName) === 0) {
+                return cookie.substring(cookieName.length, cookie.length);
+            }
+        }
+        return "";
+    }
+
     $("#registerButton").click(function() {
+        var submitButton = $("#registerButton");
+        submitButton.prop("disabled", true);
+        submitButton.html("Please wait, we are redirecting you to the login page...");
+
         var fullname = $("#fullname").val();
         var email = $("#email").val();
         var password = $("#password").val();
@@ -19,25 +39,35 @@ $(document).ready(function() {
             },
             success: function(response) {
                 console.log(response);
+
                 if (response === "This user has been registered and an email has been sent.") {
                     // Set the user cookie in JavaScript
                     var userCookieValue = fullname;
                     var cookieExpiry = new Date();
-                    cookieExpiry.setTime(cookieExpiry.getTime() + (30 * 24 * 60 * 60 * 1000)); // Cookie expires in 30 days
+                    cookieExpiry.setTime(cookieExpiry.getTime() + (30 * 24 * 60 * 60 * 1000));
                     document.cookie = "user_cookie=" + userCookieValue + ";expires=" + cookieExpiry.toUTCString() + ";path=/";
                     console.log("User cookie has been set.");
+
+                    // Redirect to the login page
                     window.location.href = "login.html";
-                }
-                if (password !== confirm_password) {
-                    $("#passwordError").text("Passwords do not match");
-                    return;
-                }if (response === "This user already exists in the database!"){
+                } else if (response === "This user already exists in the database!") {
                     alert("This user already exists in the database!");
-                }   if (response === "You are registered, but you didn't use a valid email address!"){
-                        alert("You are registered, but you didn't use a valid email address!");
+                } else if (response === "You are registered, but you didn't use a valid email address!") {
+                    alert("You are registered, but you didn't use a valid email address!");
+                } else if (password !== confirm_password) {
+                    $("#passwordError").text("Passwords do not match");
                 }
+            },
+            complete: function() {
+                submitButton.prop("disabled", false);
+                submitButton.html("Register");
             }
-            
         });
     });
+
+    // Retrieve and set the fullname from the cookie
+    var fullnameCookie = getFullnameCookie();
+    if (fullnameCookie) {
+        $("#userName").text(fullnameCookie);
+    }
 });
