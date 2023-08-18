@@ -18,7 +18,7 @@ $(document).ready(function() {
     $("#registerButton").click(function() {
         var submitButton = $("#registerButton");
         submitButton.prop("disabled", true);
-        submitButton.html("Please wait, we are redirecting you to the login page...");
+        submitButton.html("Wait ...");
 
         var fullname = $("#fullname").val();
         var email = $("#email").val();

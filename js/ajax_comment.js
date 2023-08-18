@@ -1,5 +1,7 @@
 $(document).ready(function(){
-    $("#send_comment").click(function(){
+    $("#send_comment").click(function(e){
+        e.preventDefault(); // Prevent the default form submission
+        
         var comment = $("#comment").val();
         var name = $("#name").val();
         var email = $("#email").val();
@@ -15,13 +17,20 @@ $(document).ready(function(){
                 email: email,
                 website: website,
             },
+            dataType: "json", // Expect JSON response
             success: function(response){
                 console.log(response);
-                if (response === "There was an error submitting your comment.") {
-                    alert("There was an error submitting your comment.");
+                if (response.status === "success") {
+                    // Comment was successfully submitted
+                    window.location.href = " ";
                 } else {
-                    window.location.href ="single-blog.html";
+                    // There was an error submitting the comment
+                    alert("There was an error submitting your comment.");
                 }
+            },
+            error: function(xhr, status, error) {
+                console.error(error); // Log the error for debugging
+                console.log("An error occurred while submitting your comment.");
             }
         });
     });
