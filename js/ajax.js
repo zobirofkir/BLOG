@@ -1,24 +1,13 @@
 $(document).ready(function() {
-    function getFullnameCookie() {
-        var cookieName = "user_cookie=";
-        var decodedCookie = decodeURIComponent(document.cookie);
-        var cookieArray = decodedCookie.split(';');
-        for (var i = 0; i < cookieArray.length; i++) {
-            var cookie = cookieArray[i];
-            while (cookie.charAt(0) === ' ') {
-                cookie = cookie.substring(1);
-            }
-            if (cookie.indexOf(cookieName) === 0) {
-                return cookie.substring(cookieName.length, cookie.length);
-            }
-        }
-        return "";
+    // Function to get the user's full name from the session
+    function getFullnameSession() {
+        return sessionStorage.getItem("fullname");
     }
 
     $("#registerButton").click(function() {
         var submitButton = $("#registerButton");
         submitButton.prop("disabled", true);
-        submitButton.html("Please wait, we are redirecting you to the login page...");
+        submitButton.html("Wait ...");
 
         var fullname = $("#fullname").val();
         var email = $("#email").val();
@@ -41,13 +30,8 @@ $(document).ready(function() {
                 console.log(response);
 
                 if (response === "This user has been registered and an email has been sent.") {
-                    // Set the user cookie in JavaScript
-                    var userCookieValue = fullname;
-                    var cookieExpiry = new Date();
-                    cookieExpiry.setTime(cookieExpiry.getTime() + (30 * 24 * 60 * 60 * 1000));
-                    document.cookie = "user_cookie=" + userCookieValue + ";expires=" + cookieExpiry.toUTCString() + ";path=/";
-                    console.log("User cookie has been set.");
-
+                    // Set the user session in JavaScript
+                    sessionStorage.setItem("fullname", fullname);
                     // Redirect to the login page
                     window.location.href = "login.html";
                 } else if (response === "This user already exists in the database!") {
@@ -65,9 +49,11 @@ $(document).ready(function() {
         });
     });
 
-    // Retrieve and set the fullname from the cookie
-    var fullnameCookie = getFullnameCookie();
-    if (fullnameCookie) {
-        $("#userName").text(fullnameCookie);
+    // Retrieve and set the fullname from the session
+    var fullnameSession = getFullnameSession();
+    if (fullnameSession) {
+        $("#userName").text(fullnameSession);
+    } else {
+        $("#userName").text("world");
     }
 });
